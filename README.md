@@ -1,6 +1,6 @@
 ## Java Swing Validator
 
-If you are interested or currently working on some swing project here is a simple form validator method with custom validator error messages and this also highlights the field.
+If you are interested or currently working on some java swing project, Here is a simple form validation method with custom validator error messages. This also highlights the error fields.
 
 ### How to use Validator
 
