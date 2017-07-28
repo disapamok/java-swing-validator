@@ -4,14 +4,17 @@ If you are interested or currently working on some swing project here is a simpl
 
 ### How to use Validator
 
-Download and add Validator.java and ValidatorItem.java to your class path.
+Download and add Validator.java and ValidatorItem.java to your class path. 
+Sample usage. (This can use in "save" button code)
 
 ```markdown
-Sample usage. (This can use in "save" button code)
-`
+
 import Source.Validator;
 import Source.ValidatorItem;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
 
 private void save() {
   try{
@@ -51,7 +54,6 @@ private void save() {
     }
 }
 
-`
 ```
 
 Thanks. Follow disapamok in github/twitter for more.
