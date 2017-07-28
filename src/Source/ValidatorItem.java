@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Source;
 
 /**
- *
- * @author CS003
+ * @author Sahan Dissanayake (Disapamok)
+ * www.sahan.xyz
+ * https://github.com/disapamok
+ * https://twitter.com/disapamok
  */
 public class ValidatorItem {
 
