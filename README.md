@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+## Java Swing Validator
 
-You can use the [editor on GitHub](https://github.com/disapamok/java-swing-validator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+If you are interested or currently working on some swing project here is a simple form validator method with custom validator error messages and this also highlights the field.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### How to use Validator
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Download and add Validator.java and ValidatorItem.java to your class path.
 
 ```markdown
-Syntax highlighted code block
+Sample usage. (This can use in "save" button code)
+`
+import Source.Validator;
+import Source.ValidatorItem;
+import java.util.List;
 
-# Header 1
-## Header 2
-### Header 3
+private void save() {
+  try{
+      /*
+      * If you want to set custom error messages.
+      * field_name and value words in custom validator messages will be replaced by the validator class automatically.
+      * field_name = What you set in -> new ValidatorItem("required", jTextField1, "First Field") here. (First Field)
+      * value = What you set in validator method max:5. In this, 5 is the value.
+      */
+      Map<String, String> msgs = new HashMap<String, String>();
+      msgs.put("required", "field_name required! Custom message.");
+      msgs.put("number", "This is a custom message for number validation rule. field_name.");
+      msgs.put("min", "Please add at least value.");
+      msgs.put("max", "Oh! Maximum length should be value for field_name!");
+      Validator.setErrorMessages(msgs);
 
-- Bulleted
-- List
+      /*
+      * Normal usage.
+      */
 
-1. Numbered
-2. List
+      List<ValidatorItem> vals = new ArrayList<>();
+      vals.add(new ValidatorItem("required", jTextField1, "First Field"));
+      vals.add(new ValidatorItem("required|number|min:5|max:8", jTextField2, "Second Field"));
+      vals.add(new ValidatorItem("required|min:5", jTextField3, "Third Field"));
+      vals.add(new ValidatorItem("required|max:5", jTextField4, "Fourth Field"));
 
-**Bold** and _Italic_ and `Code` text
+      Validator validator = new Validator(vals);
+      boolean isFormValid = validator.isPasses();
 
-[Link](url) and ![Image](src)
+      // Get error messages :
+      List<String> errors = validator.getErrors();
+      for (String error : errors) {
+          System.out.println(error);
+      }
+    } catch (Exception e) {
+            e.printStackTrace();
+    }
+}
+
+`
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Thanks. Follow disapamok in github/twitter for more.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/disapamok/java-swing-validator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
